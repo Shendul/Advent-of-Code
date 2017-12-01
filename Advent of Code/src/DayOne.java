@@ -8,15 +8,18 @@ public class DayOne {
 		
 		long sum = 0;
 		
+		
 		String input = in.nextLine();
+		int stepper = input.length()/2;
+				
 		for(int i = 0; i < input.length(); i++) {
-			if(i < (input.length() - 1)) {
-				if(Character.getNumericValue(input.charAt(i)) == Character.getNumericValue(input.charAt(i+1))){
+			if(i < (input.length() - stepper)) {
+				if(Character.getNumericValue(input.charAt(i)) == Character.getNumericValue(input.charAt(i+stepper))){
 					//System.out.println("found a match");
 					sum += Character.getNumericValue(input.charAt(i));
 				}
 			} else {
-				if(Character.getNumericValue(input.charAt(i)) == Character.getNumericValue(input.charAt(0))){
+				if(Character.getNumericValue(input.charAt(i)) == Character.getNumericValue(input.charAt(i - stepper))){
 					//System.out.println("found a match");
 					sum += Character.getNumericValue(input.charAt(i));
 				}
