@@ -19,6 +19,7 @@ public class DaySix {
 		ArrayList<ArrayList<Integer>> previous = new ArrayList<ArrayList<Integer>>();
 		boolean looping = true;
 		int count = 1;
+		int times = 1;
 		while(looping) {
 			int max = banks.get(0);
 			int index = 0;
@@ -44,9 +45,15 @@ public class DaySix {
 			
 			
 			if (previous.contains(banks)) {
-				looping = false;
 				System.out.println("count: " + count);
-				break;
+				count = 0; // part two
+				previous.clear();
+				
+				if (times == 2) {
+					looping = false;
+				}
+				times++;
+				
 			} else {
 				count++;
 				ArrayList<Integer> store = new ArrayList<Integer>(banks);
