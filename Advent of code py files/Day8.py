@@ -1,5 +1,7 @@
 # Initialize dictionary of variable names and values.
 variables = {}
+# Part two global maximum
+maximumNum = 0
 
 # Open file and split lines on spaces.
 with open('day8instructions.txt', 'r') as file:
@@ -22,10 +24,14 @@ with open('day8instructions.txt', 'r') as file:
                 if instruction[1] == 'inc':
                     inc = instruction[2]
                     variables[instruction[0]] += int(inc)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
                 else:
                     dec = instruction[2]
                     variables[instruction[0]] -= int(dec)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
         elif instruction[5] == '<':
             var = variables[instruction[4]]
@@ -34,10 +40,14 @@ with open('day8instructions.txt', 'r') as file:
                 if instruction[1] == 'inc':
                     inc = instruction[2]
                     variables[instruction[0]] += int(inc)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
                 else:
                     dec = instruction[2]
                     variables[instruction[0]] -= int(dec)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
         elif instruction[5] == '>=':
             var = variables[instruction[4]]
@@ -46,10 +56,14 @@ with open('day8instructions.txt', 'r') as file:
                 if instruction[1] == 'inc':
                     inc = instruction[2]
                     variables[instruction[0]] += int(inc)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
                 else:
                     dec = instruction[2]
                     variables[instruction[0]] -= int(dec)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
         elif instruction[5] == '<=':
             var = variables[instruction[4]]
@@ -58,10 +72,14 @@ with open('day8instructions.txt', 'r') as file:
                 if instruction[1] == 'inc':
                     inc = instruction[2]
                     variables[instruction[0]] += int(inc)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
                 else:
                     dec = instruction[2]
                     variables[instruction[0]] -= int(dec)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
         elif instruction[5] == '==':
             var = variables[instruction[4]]
@@ -70,10 +88,14 @@ with open('day8instructions.txt', 'r') as file:
                 if instruction[1] == 'inc':
                     inc = instruction[2]
                     variables[instruction[0]] += int(inc)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
                 else:
                     dec = instruction[2]
                     variables[instruction[0]] -= int(dec)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
         elif instruction[5] == '!=':
             var = variables[instruction[4]]
@@ -82,13 +104,18 @@ with open('day8instructions.txt', 'r') as file:
                 if instruction[1] == 'inc':
                     inc = instruction[2]
                     variables[instruction[0]] += int(inc)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
                 else:
                     dec = instruction[2]
                     variables[instruction[0]] -= int(dec)
+                    if variables[instruction[0]] > maximumNum:
+                        maximumNum = variables[instruction[0]]
                     #print(variables)
 
     maxNum = max(variables.values())
     print(maxNum)
+    print(maximumNum)
             
             
