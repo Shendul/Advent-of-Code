@@ -2,7 +2,7 @@
 tree = {}
 
 # Open file and split on new lines.
-with open('instructions.txt', 'r') as file:
+with open('day7testcase.txt', 'r') as file:
     instructions = file.readlines()
 
     for instruction in instructions:
@@ -11,7 +11,7 @@ with open('instructions.txt', 'r') as file:
         parent_children = words[0].split(" -> ")
         name_weight = parent_children[0].split(' ')
         name = name_weight[0]
-        weight = name_weight[1][1:-1]
+        weight = int(name_weight[1][1:-1])
         # Initialize nodes with who their parent is.
         if name not in tree:
             tree[name] = {"parent":"", "weight":0,  "childlist":[]}
@@ -37,7 +37,31 @@ with open('instructions.txt', 'r') as file:
 
 
     # Part two
+    def calcWeight(node):
+        totalWeight = tree[node]["weight"]
+        for child in  tree[node]["childlist"]:
+            totalWeight += calcWeight(child)
+        return totalWeight
+
+    #set up array of weights to compare
+    weights = []
+
+    for child in tree[root]["childlist"]:
+        weights.append(calcWeight(child))
+
+    for w in range(len(weights)):
+        if weights[w] > weights[(w+1)%len(weights)]:
+            unbalance = weights[w] - weights[(w+1)%len(weights)]
+            # now i need to grab the correct parent and add or sub the unbalance from it
+            # also need to make it recursive prob, but im out of time.
+            print(unbalance)
+
+
+    print(weights)
+
+
     
+            
     
 
                 
