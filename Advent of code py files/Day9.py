@@ -1,6 +1,7 @@
 # Initilize score and some counters/trackers
 score = 0
 openBrackets = 0
+garbageChars = 0
 garbage = False
 cancelNext = False
 
@@ -21,6 +22,8 @@ with open('day9input.txt', 'r') as file:
                 elif char == '>':
                     #print ("close garbage")
                     garbage = False
+                else:
+                    garbageChars += 1
             else:
                 if char == '{':
                     openBrackets += 1
@@ -30,5 +33,6 @@ with open('day9input.txt', 'r') as file:
                     score += openBrackets # maybe right
                     openBrackets -= 1
     print(score)
+    print(garbageChars)
 
 
