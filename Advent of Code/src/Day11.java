@@ -6,6 +6,7 @@ public class Day11 {
 		
 		// init endpoint x, y, and z scores.
 		int endX = 0, endY = 0, endZ = 0;
+		int maxD = 0;
 		
 		// scan in the moves
 		Scanner in = new Scanner(System.in);
@@ -36,10 +37,16 @@ public class Day11 {
 				System.out.println("Error: invalid move was made?");
 			}
 			
+			if (Math.max(Math.max(Math.abs(endX),Math.abs(endY)),Math.abs(endZ)) > maxD) {
+				maxD = Math.max(Math.max(Math.abs(endX),Math.abs(endY)),Math.abs(endZ));
+			}
+			
 		}
 		
 		// Take the maximum of the three scores absolute values and that is your distance
 		System.out.println(Math.max(Math.max(Math.abs(endX),Math.abs(endY)),Math.abs(endZ)));
+		
+		System.out.println(maxD);
 
 	}
 
